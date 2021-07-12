@@ -1,0 +1,38 @@
+.Details .content {
+  /* margin-top: 20px; */
+}
+
+.Details .footer {
+  height: 55px;
+  margin-top: 47px;
+  text-align: left;
+}
+
+.Details .content div {
+  height: 45px;
+  margin: 20px 25px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.Details .content span {
+  display: inline-block;
+  width: 40%;
+  text-align: left;
+}
+
+.Details .footer div {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+}
+
+.Details .footer span {
+  padding-right: 5px;
+  color: #aaa;
+  font-weight: bold;
+  font-size: 14px;
+}

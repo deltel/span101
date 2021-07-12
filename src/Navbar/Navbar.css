@@ -1,0 +1,17 @@
+.Navbar {
+  height: 50px;
+  background-color: #4a148c;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.Navbar button {
+  width: 34px;
+  height: 33px;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}

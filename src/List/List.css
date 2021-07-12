@@ -1,0 +1,20 @@
+.List {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  padding: 0;
+  margin: 16px auto;
+}
+
+@media screen and (max-width: 420px) {
+  .List {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .List {
+    width: 90%;
+  }
+}

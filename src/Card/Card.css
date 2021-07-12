@@ -1,0 +1,27 @@
+.Card {
+  clear: right;
+  width: 60%;
+  height: 493px;
+  margin: 48px auto;
+  margin-top: 12px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.Card.height-modifier {
+  height: 416px;
+}
+
+.Card .title {
+  background-color: #d1c4e9;
+  height: 35px;
+  line-height: 35px;
+  font-weight: bold;
+  font-size: 24px;
+  color: #fff;
+}
+
+@media screen and (max-width: 450px) {
+  .Card {
+    width: 80%;
+  }
+}

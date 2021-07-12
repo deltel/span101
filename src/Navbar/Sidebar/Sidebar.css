@@ -1,0 +1,43 @@
+.Overlay {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: #c4c4c4;
+  opacity: 0.8;
+}
+
+.Sidebar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  background-color: #4a148c;
+  width: 40%;
+}
+
+.Sidebar ul {
+  list-style: none;
+  padding-left: 0;
+  text-align: left;
+  font-size: 14px;
+  margin: 5px;
+  font-weight: bold;
+}
+
+.Sidebar a {
+  text-decoration: none;
+  display: inline-block;
+  width: 100%;
+  color: #fff;
+}
+
+.Sidebar li {
+  padding: 10px;
+}
+
+.Sidebar .active {
+  color: #4a148c;
+  background-color: #fff;
+}

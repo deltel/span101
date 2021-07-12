@@ -1,0 +1,18 @@
+.ConjugationDetails p {
+  margin: 32px 25px;
+  text-align: left;
+}
+
+.ConjugationDetails .Card {
+  height: 228px;
+}
+
+.ConjugationDetails .Details .content {
+  margin-top: 17px;
+}
+
+.ConjugationDetails .Details .content div {
+  height: 16px;
+  margin: 10px 25px;
+  font-size: 14px;
+}
