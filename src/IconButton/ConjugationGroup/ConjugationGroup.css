@@ -1,0 +1,11 @@
+.ConjugationGroup {
+  float: right;
+  width: 158px;
+  margin-right: 20%;
+}
+
+@media screen and (max-width: 420px) {
+  .ConjugationGroup {
+    margin-right: 5%;
+  }
+}

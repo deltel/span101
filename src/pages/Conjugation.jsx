@@ -1,61 +1,54 @@
 import React, { useState } from "react";
 
-// import "./Conjugation.css";
-
 import Card from "../Card/Card";
 import ConjugationDetails from "../ConjugationDetails/ConjugationDetails";
-import VerbButtonGroup from "../IconButton/Verb/VerbButtonGroup";
+import ConjugationGroup from "../IconButton/ConjugationGroup/ConjugationGroup";
+
+import {
+  preteriteTenseConjugates,
+  presentTenseConjugates,
+  words,
+} from "../constants/constants";
 
 const Conjugation = () => {
   const [title] = useState("Present Tense");
-
-  const words = {
-    ar: "BAILAR",
-    er: "BEBER",
-    ir: "VIVIR",
-  };
   const [activeWord, setActiveWord] = useState(words.ar);
-
-  const presentTenseConjugates = {
-    ar: {
-      yo: "bailo",
-      tú: "bailas",
-      usted: "baila",
-      nosotros: "bailamos",
-      vosotros: "bailáis",
-      ustedes: "bailan",
-    },
-    er: {
-      yo: "bebo",
-      tú: "bebes",
-      usted: "bebe",
-      nosotros: "bebemos",
-      vosotros: "bebéis",
-      ustedes: "beben",
-    },
-    ir: {
-      yo: "vivo",
-      tú: "vives",
-      usted: "vive",
-      nosotros: "vivimos",
-      vosotros: "vivís",
-      ustedes: "viven",
-    },
-  };
   const [conjugates, setConjugates] = useState(presentTenseConjugates.ar);
-
   const [activeIcon, setActiveIcon] = useState("ar");
+  const [activeTense, setActiveTense] = useState("present");
 
   const toggleExample = (targetIdentifier) => {
     if (targetIdentifier === activeIcon) return;
     setActiveIcon(targetIdentifier);
     setActiveWord(words[targetIdentifier]);
-    setConjugates(presentTenseConjugates[targetIdentifier]);
+
+    if (activeTense === "present") {
+      setConjugates(presentTenseConjugates[targetIdentifier]);
+    } else {
+      setConjugates(preteriteTenseConjugates[targetIdentifier]);
+    }
+  };
+
+  const toggleTense = (targetIdentifier) => {
+    if (targetIdentifier === activeTense) return;
+
+    setActiveTense(targetIdentifier);
+
+    if (activeTense === "present") {
+      setConjugates(preteriteTenseConjugates[activeIcon]);
+    } else {
+      setConjugates(presentTenseConjugates[activeIcon]);
+    }
   };
 
   return (
     <>
-      <VerbButtonGroup activeIcon={activeIcon} handleClick={toggleExample} />
+      <ConjugationGroup
+        activeIcon={activeIcon}
+        activeTense={activeTense}
+        toggleExample={toggleExample}
+        toggleTense={toggleTense}
+      />
       <Card title={title} optionalClassName="height-modifier">
         <ConjugationDetails conjugates={conjugates} word={activeWord} />
       </Card>

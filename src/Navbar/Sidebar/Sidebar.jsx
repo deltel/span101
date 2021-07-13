@@ -18,7 +18,7 @@ const Sidebar = ({ handleClose }) => (
           <li>Categories</li>
         </NavLink>
         <NavLink activeClassName="active" to="/conjugation">
-          <li>Present Tense</li>
+          <li>Conjugation</li>
         </NavLink>
       </ul>
     </nav>
