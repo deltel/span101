@@ -5,6 +5,23 @@ import List from "../List/List";
 
 const Home = () => {
   const [listItems, setListItems] = useState([]);
+  const [offset, setOffset] = useState(20);
+  const [hasMore, setHasMore] = useState(true);
+
+  const fetchMoreData = async () => {
+    const response = await fetch(
+      `http://localhost:4000/words?offset=${offset}`
+    );
+    const responseJson = await response.json();
+
+    if (responseJson.length === 0) {
+      setHasMore(false);
+      return;
+    }
+
+    setListItems((prev) => [...prev, ...responseJson]);
+    setOffset((prev) => prev + 20);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,7 +36,11 @@ const Home = () => {
   return (
     <>
       <SearchArea />
-      <List listElements={listItems} />
+      <List
+        listElements={listItems}
+        fetchMoreData={fetchMoreData}
+        hasMore={hasMore}
+      />
     </>
   );
 };
