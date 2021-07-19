@@ -57,3 +57,14 @@ export const preteriteTenseConjugates = {
     ustedes: "vivieron",
   },
 };
+
+export const tense = {
+  PRESENT_TENSE: "Present Tense",
+  PRETERITE_TENSE: "Preterite Tense",
+};
+
+export const description = {
+  PRESENT_TENSE: "Used when communicating in the present tense",
+  PRETERITE_TENSE:
+    "Used when communicating in the past tense about completed actions",
+};
