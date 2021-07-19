@@ -8,7 +8,11 @@ describe("<List /> component", () => {
   let component;
   beforeEach(() => {
     const props = {
-      listElements: ["One", "Two", "Three"],
+      listElements: [
+        { value: "Uno", id: 1 },
+        { value: "Dos", id: 2 },
+        { value: "Tres", id: 3 },
+      ],
     };
 
     component = shallow(<List {...props} />);

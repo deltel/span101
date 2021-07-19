@@ -3,8 +3,8 @@ import "./List.css";
 import ListItem from "./ListItem/ListItem";
 
 const List = ({ listElements }) => {
-  const cards = listElements.map((word, index) => (
-    <ListItem word={word} key={`List-item${index}`} />
+  const cards = listElements.map(({ id, value }) => (
+    <ListItem word={value} key={id} />
   ));
 
   return <ul className="List">{cards}</ul>;
