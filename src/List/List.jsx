@@ -13,7 +13,7 @@ const List = ({ listElements, fetchMoreData, hasMore }) => {
       loader={<h4>Loading...</h4>}
     >
       {listElements.map(({ id, value }) => (
-        <ListItem word={value} key={id} />
+        <ListItem word={value} key={id} id={id} />
       ))}
     </InfiniteScroll>
   );

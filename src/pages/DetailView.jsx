@@ -1,30 +1,52 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 import Card from "../Card/Card";
 import Details from "../Details/Details";
 import EditIcon from "../IconButton/Edit/EditIcon";
 
-const DetailView = () => {
-  const initWordGroups = {
-    Translation: "to have lunch",
-    "Part of Speech": "verb",
-    Category: "ar",
-    Example: "Almuerzo a la una",
-    Keyword: "verb",
-  };
-  const [wordGroups] = useState(initWordGroups);
+import fetchWords from "../utils/executeGet";
+import {
+  separateDateGroup,
+  separateWordGroup,
+  transformLabel,
+} from "../utils/wordOperations";
 
-  const initDateInfo = {
-    "Created At": "Wed May 05 2021",
-    "Updated At": "Wed May 05 2021",
-  };
-  const [dateGroup] = useState(initDateInfo);
+const DetailView = () => {
+  const [wordGroup, setWordGroup] = useState({});
+  const [dateGroup, setDateGroup] = useState({});
+  const [title, setTitle] = useState("");
+
+  const params = useParams();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await fetchWords(
+        `http://localhost:4000/words/${params.id}`
+      );
+
+      const transformedData = {};
+      Object.keys(result[0]).forEach((key) => {
+        const capitalLabel = transformLabel(key);
+        transformedData[capitalLabel] = result[0][key];
+      });
+
+      const newWordGroup = separateWordGroup(transformedData);
+      const newDateGroup = separateDateGroup(transformedData);
+
+      setWordGroup(newWordGroup);
+      setDateGroup(newDateGroup);
+      setTitle(result[0].value);
+    };
+
+    fetchData();
+  }, [params.id]);
 
   return (
     <>
       <EditIcon />
-      <Card title="Almorzar">
-        <Details content={wordGroups} footerContent={dateGroup} />
+      <Card title={title}>
+        <Details content={wordGroup} footerContent={dateGroup} />
       </Card>
     </>
   );

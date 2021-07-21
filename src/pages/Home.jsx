@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 
 import SearchArea from "../SearchArea/SearchArea";
 import List from "../List/List";
+import fetchWords from "../utils/executeGet";
 
 const Home = () => {
   const [listItems, setListItems] = useState([]);
@@ -13,36 +14,30 @@ const Home = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("http://localhost:4000/words");
-      const responseJson = await response.json();
-      setListItems(responseJson);
+      setListItems(await fetchWords("http://localhost:4000/words"));
     };
 
     fetchData();
   }, []);
 
   const fetchMoreData = async () => {
-    const response = await fetch(
+    const result = await fetchWords(
       `http://localhost:4000/words?offset=${offset}`
     );
-    const responseJson = await response.json();
 
-    if (responseJson.length === 0) {
+    if (result.length === 0) {
       setHasMore(false);
       return;
     }
 
-    setListItems((prev) => [...prev, ...responseJson]);
+    setListItems((prev) => [...prev, ...result]);
     setOffset((prev) => prev + 20);
   };
 
   const searchForWord = async () => {
-    const response = await fetch(
-      `http://localhost:4000/words?search=${searchTerm}`
+    setListItems(
+      await fetchWords(`http://localhost:4000/words?search=${searchTerm}`)
     );
-    const responseJson = await response.json();
-
-    setListItems(responseJson);
   };
 
   const handleKeyUp = () => {

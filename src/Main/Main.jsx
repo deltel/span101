@@ -17,7 +17,7 @@ const Main = () => (
       <Route path="/new-word">
         <NewWord />
       </Route>
-      <Route path="/id">
+      <Route path="/details/:id">
         <DetailView />
       </Route>
       <Route path="/">
