@@ -6,8 +6,8 @@ import "../iconStyle.css";
 
 import Pencil from "../../assets/images/Pencil.svg";
 
-const EditIcon = () => (
-  <Link className="EditIcon icon" to="/new-word">
+const EditIcon = ({ id }) => (
+  <Link className="EditIcon icon" to={`/edit/${id}`}>
     <img src={Pencil} alt="edit icon" />
   </Link>
 );

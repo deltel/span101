@@ -6,7 +6,31 @@ import Form from "./Form";
 
 describe("<Form /> component", () => {
   it("renders 1 <Form /> component", () => {
-    const component = shallow(<Form />);
+    const props = {
+      handleChange: jest.fn(),
+      handleSubmit: jest.fn(),
+      categories: ["ar", "er", "ir", "non-verb", "masculine", "feminine"],
+      partsOfSpeech: [
+        "adjective",
+        "adverb",
+        "article",
+        "conjunction",
+        "noun",
+        "preposition",
+        "pronoun",
+        "verb",
+        "other",
+      ],
+      formState: {
+        value: "",
+        translation: "",
+        category: "",
+        keyword: "",
+        part_of_speech: "",
+        example: "",
+      },
+    };
+    const component = shallow(<Form {...props} />);
 
     expect(component).toHaveLength(1);
     expect(component.find("form")).toHaveLength(1);

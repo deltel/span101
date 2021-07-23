@@ -31,6 +31,8 @@ const DetailView = () => {
         transformedData[capitalLabel] = result[0][key];
       });
 
+      localStorage.setItem("currentWord", JSON.stringify(result[0]));
+
       const newWordGroup = separateWordGroup(transformedData);
       const newDateGroup = separateDateGroup(transformedData);
 
@@ -44,7 +46,7 @@ const DetailView = () => {
 
   return (
     <>
-      <EditIcon />
+      <EditIcon id={params.id} />
       <Card title={title}>
         <Details content={wordGroup} footerContent={dateGroup} />
       </Card>

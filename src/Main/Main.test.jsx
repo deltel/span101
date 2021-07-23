@@ -11,6 +11,6 @@ describe("<Main /> component", () => {
     expect(component).toHaveLength(1);
     expect(component.find("div")).toHaveLength(1);
     expect(component.find("Switch")).toHaveLength(1);
-    expect(component.find("Route")).toHaveLength(4);
+    expect(component.find("Route")).toHaveLength(5);
   });
 });

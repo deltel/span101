@@ -68,3 +68,17 @@ export const description = {
   PRETERITE_TENSE:
     "Used when communicating in the past tense about completed actions",
 };
+
+export const wordType = ["ar", "er", "ir", "non-verb", "masculine", "feminine"];
+
+export const speechType = [
+  "adjective",
+  "adverb",
+  "article",
+  "conjunction",
+  "noun",
+  "preposition",
+  "pronoun",
+  "verb",
+  "other",
+];
