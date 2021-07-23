@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import SearchArea from "../SearchArea/SearchArea";
 import List from "../List/List";
 import fetchWords from "../utils/executeGet";
+import { endpoint } from "../constants/constants";
 
 const Home = () => {
   const [listItems, setListItems] = useState([]);
@@ -13,17 +14,28 @@ const Home = () => {
   const timer = useRef(null);
 
   useEffect(() => {
+    if (!localStorage.getItem("currentCategory")) return () => {};
+
+    setListItems(JSON.parse(localStorage.getItem("categoryItems")));
+    setHasMore(false);
+    return () => {
+      localStorage.removeItem("currentCategory");
+      localStorage.removeItem("categoryItems");
+    };
+  }, []);
+
+  useEffect(() => {
+    if (localStorage.getItem("currentCategory")) return;
+
     const fetchData = async () => {
-      setListItems(await fetchWords("http://localhost:4000/words"));
+      setListItems(await fetchWords(`${endpoint.base}/words`));
     };
 
     fetchData();
   }, []);
 
   const fetchMoreData = async () => {
-    const result = await fetchWords(
-      `http://localhost:4000/words?offset=${offset}`
-    );
+    const result = await fetchWords(`${endpoint.base}/words?offset=${offset}`);
 
     if (result.length === 0) {
       setHasMore(false);
@@ -36,7 +48,7 @@ const Home = () => {
 
   const searchForWord = async () => {
     setListItems(
-      await fetchWords(`http://localhost:4000/words?search=${searchTerm}`)
+      await fetchWords(`${endpoint.base}/words?search=${searchTerm}`)
     );
   };
 

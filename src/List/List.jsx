@@ -4,8 +4,18 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import "./List.css";
 import ListItem from "./ListItem/ListItem";
 
-const List = ({ listElements, fetchMoreData, hasMore }) => {
-  const cards = (
+const List = ({
+  listElements,
+  fetchMoreData,
+  hasMore,
+  isCategory,
+  handleClick,
+}) => {
+  const cards = isCategory ? (
+    listElements.map(({ keyword }) => (
+      <ListItem word={keyword} key={keyword} handleClick={handleClick} />
+    ))
+  ) : (
     <InfiniteScroll
       dataLength={listElements.length}
       next={fetchMoreData}

@@ -5,23 +5,38 @@ import "../../config/enzymeConfig";
 import ListItem from "./ListItem";
 
 describe("<ListItem /> component", () => {
-  let component;
-  beforeEach(() => {
+  describe("no handleClick prop", () => {
+    let component;
+    beforeEach(() => {
+      const props = {
+        word: "One",
+      };
+
+      component = shallow(<ListItem {...props} />);
+    });
+
+    it("renders one <ListItem /> component", () => {
+      expect(component).toHaveLength(1);
+      expect(component.find("li")).toHaveLength(1);
+      expect(component.find("NavLink")).toHaveLength(1);
+      expect(component.find("div")).toHaveLength(1);
+    });
+
+    it("renders props correctly", () => {
+      expect(component.text()).toBe("One");
+    });
+  });
+
+  it("renders handleClick prop", () => {
     const props = {
       word: "One",
+      handleClick: jest.fn(),
     };
 
-    component = shallow(<ListItem {...props} />);
-  });
+    const component = shallow(<ListItem {...props} />);
 
-  it("renders one <ListItem /> component", () => {
-    expect(component).toHaveLength(1);
-    expect(component.find("li")).toHaveLength(1);
-    expect(component.find("NavLink")).toHaveLength(1);
-    expect(component.find("div")).toHaveLength(1);
-  });
+    component.find("NavLink").simulate("click");
 
-  it("renders props correctly", () => {
-    expect(component.text()).toBe("One");
+    expect(props.handleClick).toHaveBeenCalledTimes(1);
   });
 });
