@@ -3,20 +3,43 @@ import { useParams } from "react-router-dom";
 
 import Form from "../Form/Form";
 import Card from "../Card/Card";
-import { speechType, wordType } from "../constants/constants";
+import {
+  endpoint,
+  httpCode,
+  speechType,
+  wordType,
+} from "../constants/constants";
+import handleError from "../utils/handleError";
 
-const WordForm = () => {
-  const params = useParams();
-  const [formData, setFormData] = useState({
+const WordForm = ({ edit }) => {
+  const initFormData = {
     value: "",
     translation: "",
-    category: "",
+    category: wordType[0],
     keyword: "",
-    part_of_speech: "",
+    part_of_speech: speechType[7],
     example: "",
-  });
+  };
+
+  const params = useParams();
+  const [formData, setFormData] = useState(initFormData);
 
   useEffect(() => {
+    if (!edit) {
+      if (localStorage.getItem("currentWord")) {
+        localStorage.removeItem("currentWord");
+        setFormData({
+          value: "",
+          translation: "",
+          category: wordType[0],
+          keyword: "",
+          part_of_speech: speechType[7],
+          example: "",
+        });
+      }
+      return;
+    }
+
     const currentWord = JSON.parse(localStorage.getItem("currentWord"));
 
     delete currentWord.id;
@@ -24,16 +47,16 @@ const WordForm = () => {
     delete currentWord.created_at;
 
     setFormData(currentWord);
-  }, []);
+  }, [edit]);
 
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleEdit = async (e) => {
     e.preventDefault();
 
-    const response = await fetch(`http://localhost:4000/words/${params.id}`, {
+    const response = await fetch(`${endpoint.base}/words/${params.id}`, {
       method: "PATCH",
       body: JSON.stringify(formData),
       headers: {
@@ -43,22 +66,32 @@ const WordForm = () => {
 
     if (response.ok)
       localStorage.setItem("currentWord", JSON.stringify(formData));
-    //  handle error
+    else handleError(response);
+  };
 
-    // else {
-    // const responseJson = await response.json();
-    // console.log(responseJson.error);
-    // }
+  const handleCreate = async (e) => {
+    e.preventDefault();
+
+    const response = await fetch(`${endpoint.base}/words`, {
+      method: "POST",
+      body: JSON.stringify(formData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (response.status === httpCode.CREATED) setFormData(initFormData);
+    else handleError(response);
   };
 
   return (
-    <Card title="New Word">
+    <Card title={edit ? "Edit" : "New Word"}>
       <Form
         categories={wordType}
         partsOfSpeech={speechType}
         handleChange={handleChange}
         formState={formData}
-        handleSubmit={handleSubmit}
+        handleSubmit={edit ? handleEdit : handleCreate}
       />
     </Card>
   );

@@ -82,3 +82,11 @@ export const speechType = [
   "verb",
   "other",
 ];
+
+export const httpCode = {
+  CREATED: 201,
+};
+
+export const endpoint = {
+  base: "http://localhost:4000",
+};

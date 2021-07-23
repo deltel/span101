@@ -21,7 +21,7 @@ const Main = () => (
         <DetailView />
       </Route>
       <Route path="/edit/:id">
-        <WordForm />
+        <WordForm edit />
       </Route>
       <Route path="/">
         <Home />
