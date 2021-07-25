@@ -66,7 +66,7 @@ const WordForm = ({ edit }) => {
 
     if (response.ok)
       localStorage.setItem("currentWord", JSON.stringify(formData));
-    else handleError(response);
+    else handleError(response); // implement handleError properly
   };
 
   const handleCreate = async (e) => {
@@ -81,7 +81,7 @@ const WordForm = ({ edit }) => {
     });
 
     if (response.status === httpCode.CREATED) setFormData(initFormData);
-    else handleError(response);
+    else handleError(response); // implement error handling
   };
 
   return (

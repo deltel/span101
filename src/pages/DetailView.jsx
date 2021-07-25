@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import Card from "../Card/Card";
+import { endpoint } from "../constants/constants";
 import Details from "../Details/Details";
 import EditIcon from "../IconButton/Edit/EditIcon";
 
@@ -21,9 +22,7 @@ const DetailView = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await fetchWords(
-        `http://localhost:4000/words/${params.id}`
-      );
+      const result = await fetchWords(`${endpoint.base}/words/${params.id}`);
 
       const transformedData = {};
       Object.keys(result[0]).forEach((key) => {

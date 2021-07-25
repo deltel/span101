@@ -88,5 +88,5 @@ export const httpCode = {
 };
 
 export const endpoint = {
-  base: "http://localhost:4000",
+  base: process.env.REACT_APP_BASE_URL,
 };
