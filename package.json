@@ -1,6 +1,6 @@
 {
   "name": "span101-frontend",
-  "homepage": "https://deltel.github.io/span101",
+  "homepage": "http://deltel.github.io/span101",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
