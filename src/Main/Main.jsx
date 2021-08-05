@@ -8,25 +8,33 @@ import DetailView from "../pages/DetailView";
 import Conjugation from "../pages/Conjugation";
 import WordForm from "../pages/WordForm";
 import Categories from "../pages/Categories";
+import Login from "../pages/Login";
+import GuardedRoute from "./GuardedRoute/GuardedRoute";
 
-const Main = () => (
+const Main = ({ handleAuth, isAuth }) => (
   <div className="Main">
     <Switch>
+      {!isAuth && (
+        <Route path="/login">
+          <Login handleAuth={handleAuth} />
+        </Route>
+      )}
       <Route path="/conjugation">
         <Conjugation />
       </Route>
-      <Route path="/new-word">
-        <WordForm />
-      </Route>
+      <GuardedRoute path="/new-word" component={WordForm} isAuth={isAuth} />
       <Route path="/categories">
         <Categories />
       </Route>
       <Route path="/details/:id">
         <DetailView />
       </Route>
-      <Route path="/edit/:id">
-        <WordForm edit />
-      </Route>
+      <GuardedRoute
+        path="/edit/:id"
+        component={WordForm}
+        isAuth={isAuth}
+        edit
+      />
       <Route path="/">
         <Home />
       </Route>

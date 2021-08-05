@@ -85,6 +85,9 @@ export const speechType = [
 
 export const httpCode = {
   CREATED: 201,
+  OK: 200,
+  UNAUTHORIZED: 401,
+  INTERNAL_SERVER_ERROR: 500,
 };
 
 export const endpoint = {
