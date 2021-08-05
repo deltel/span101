@@ -24,6 +24,12 @@ const WordForm = ({ edit }) => {
 
   const params = useParams();
   const [formData, setFormData] = useState(initFormData);
+  const [authToken, setAuthToken] = useState("");
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) setAuthToken(token);
+  }, []);
 
   useEffect(() => {
     if (!edit) {
@@ -62,6 +68,7 @@ const WordForm = ({ edit }) => {
       body: JSON.stringify(formData),
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${authToken}`,
       },
     });
 
@@ -78,6 +85,7 @@ const WordForm = ({ edit }) => {
       body: JSON.stringify(formData),
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${authToken}`,
       },
     });
 
