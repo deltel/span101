@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-import Card from "../Card/Card";
-import ConjugationDetails from "../ConjugationDetails/ConjugationDetails";
-import ConjugationGroup from "../IconButton/ConjugationGroup/ConjugationGroup";
+import Card from "../components/Card/Card";
+import ConjugationDetails from "../components/ConjugationDetails/ConjugationDetails";
+import ConjugationGroup from "../components/IconButton/ConjugationGroup/ConjugationGroup";
 
 import {
   preteriteTenseConjugates,

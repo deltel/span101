@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import Form from "../Form/Form";
-import Card from "../Card/Card";
+import Card from "../components/Card/Card";
+import Form from "../components/Form/Form";
+
 import {
   endpoint,
   httpCode,

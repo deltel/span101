@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import Card from "../Card/Card";
 import { endpoint } from "../constants/constants";
-import Details from "../Details/Details";
-import EditIcon from "../IconButton/Edit/EditIcon";
+import Details from "../components/Details/Details";
+import EditIcon from "../components/IconButton/Edit/EditIcon";
+import Card from "../components/Card/Card";
 
 import fetchWords from "../utils/executeGet";
 import {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 
-import SearchArea from "../SearchArea/SearchArea";
-import List from "../List/List";
+import SearchArea from "../components/SearchArea/SearchArea";
+import List from "../components/List/List";
 import fetchWords from "../utils/executeGet";
 import { endpoint } from "../constants/constants";
 

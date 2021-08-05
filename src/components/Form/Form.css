@@ -1,0 +1,53 @@
+.Form {
+  height: 458px;
+  width: 80%;
+  margin: 8px auto;
+}
+
+.Form label {
+  text-align: left;
+}
+
+.Form button {
+  margin-top: 38px;
+  background-color: #4a148c;
+  color: #fff;
+  font-size: 24px;
+  width: 80%;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #4a148c;
+}
+
+.Form label,
+.Form button {
+  font-weight: bold;
+}
+
+.form-group {
+  height: 53px;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.Form .form-group select,
+.form-group input {
+  display: block;
+  height: 30px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 7px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.form-group input {
+  box-sizing: border-box;
+}
+
+.Form .form-group select {
+  padding: 2px;
+}

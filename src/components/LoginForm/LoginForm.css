@@ -1,0 +1,46 @@
+.LoginForm {
+  margin: 0 auto;
+}
+
+.LoginForm form {
+  display: inline-block;
+  width: 250px;
+  height: 300px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  background-color: rgba(74, 20, 140, 0.5);
+  text-align: left;
+  color: #fff;
+}
+
+.LoginForm button {
+  margin-top: 43px;
+  margin-left: 10%;
+  background-color: rgba(74, 20, 140, 0.75);
+  color: #fff;
+  font-size: 18px;
+  width: 80%;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #4a148c;
+}
+
+.LoginForm h3,
+.LoginForm p {
+  margin: 0;
+}
+
+.LoginForm h3 {
+  margin-top: 35px;
+}
+
+.LoginForm p {
+  margin-bottom: 60px;
+}
+
+.LoginForm form h3 {
+  margin-top: 22px;
+  margin-left: 25px;
+  margin-bottom: 19px;
+  text-align: left;
+}

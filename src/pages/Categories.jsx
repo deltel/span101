@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
-import List from "../List/List";
+import List from "../components/List/List";
 import fetchWords from "../utils/executeGet";
 import { endpoint } from "../constants/constants";
 
