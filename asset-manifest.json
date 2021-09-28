@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/span101/static/css/main.16036ace.chunk.css",
+    "main.js": "/span101/static/js/main.f0b231cc.chunk.js",
+    "main.js.map": "/span101/static/js/main.f0b231cc.chunk.js.map",
+    "runtime-main.js": "/span101/static/js/runtime-main.f4ed470a.js",
+    "runtime-main.js.map": "/span101/static/js/runtime-main.f4ed470a.js.map",
+    "static/js/2.21467aff.chunk.js": "/span101/static/js/2.21467aff.chunk.js",
+    "static/js/2.21467aff.chunk.js.map": "/span101/static/js/2.21467aff.chunk.js.map",
+    "static/js/3.de28b2b0.chunk.js": "/span101/static/js/3.de28b2b0.chunk.js",
+    "static/js/3.de28b2b0.chunk.js.map": "/span101/static/js/3.de28b2b0.chunk.js.map",
+    "index.html": "/span101/index.html",
+    "static/css/main.16036ace.chunk.css.map": "/span101/static/css/main.16036ace.chunk.css.map",
+    "static/js/2.21467aff.chunk.js.LICENSE.txt": "/span101/static/js/2.21467aff.chunk.js.LICENSE.txt",
+    "static/media/Burger.e36825dd.svg": "/span101/static/media/Burger.e36825dd.svg",
+    "static/media/Logo.e5acac9e.svg": "/span101/static/media/Logo.e5acac9e.svg",
+    "static/media/Pencil.c44216bc.svg": "/span101/static/media/Pencil.c44216bc.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f4ed470a.js",
+    "static/js/2.21467aff.chunk.js",
+    "static/css/main.16036ace.chunk.css",
+    "static/js/main.f0b231cc.chunk.js"
+  ]
+}
